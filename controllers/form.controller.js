@@ -15,21 +15,18 @@ var controller = {
         console.log(contentHTML);
 
         let transporter = nodemailer.createTransport({
-            host: 'mail.gtd.cl',
-            port: 587,
-            secure: false, // true for 465, false for other ports
+            service: 'Gmail',
             auth: {
-                user: 'bastian.mardones@eatri.cl', // generated ethereal user
-                pass: 'bmardones123' // generated ethereal password
+                user: 'gmccontactoweb@gmail.com', // generated ethereal user
+                pass: 'Gmcltda2019' // generated ethereal password
             }
         });
     
         // send mail with defined transport object
         let mailOptions = {
-            from: '"NodeMailer:" bastian.mardones@eatri.cl', // sender address
-            to: 'bamardto@gmail.com', // list of receivers
-            subject: 'node contact ✔', // Subject line
-            text: 'Hello world?', // plain text body
+            from: 'contactoWeb', // sender address
+            to: 'limitadagmc62@gmail.com', // list of receivers
+            subject: 'Consulta', // Subject line
             html: contentHTML
         };
 
@@ -37,9 +34,11 @@ var controller = {
             if(error){
                 return console.log(error);
 
+            }else{
+                console.log('mensaje enviado'+ info.messageId);
+                console.log()
+
             }
-            console.log('mensaje enviado', info.messageId);
-            console.log()
         })
     }
 }
